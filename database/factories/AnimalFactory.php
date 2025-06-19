@@ -26,9 +26,9 @@ class AnimalFactory extends Factory
             'sexo' => $this->faker->randomElement($sexos),
             'descripcion' => $this->faker->text(200),
             'estado_adopcion' => $this->faker->randomElement($estados),
-            'foto' => $this->faker->imageUrl(640, 480, 'animals', true),
+            'foto' => 'animals/image1.jpg',
             'fecha_ingreso' => $this->faker->dateTimeBetween('-2 years', 'now'),
-            'id_adoptante' => null, // se puede asignar luego o en seeder
+            'id_adoptante' => null, 
         ];
     }
 }

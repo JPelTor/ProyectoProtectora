@@ -23,11 +23,15 @@ class AnimalController extends Controller
             'sexo' => 'required|in:M,F',
             'descripcion' => 'nullable|string',
             'estado_adopcion' => 'required|in:disponible,adoptado,en_proceso',
-            'foto' => 'nullable|string|max:255',
+            'foto' => 'nullable|image|max:255',
             'id_adoptante' => 'nullable|exists:usuarios,id_usuario',
         ]);
-
-        $animal = Animal::create($request->all());
+        $data=$request->all();
+        if ($request->hasFile('foto')) {
+            $rutaImagen = $request->file('foto')->store('animals', 'public');
+            $data['foto'] = $rutaImagen;
+        }
+        $animal = Animal::create($data);
         return response()->json($animal, 201);
     }
 

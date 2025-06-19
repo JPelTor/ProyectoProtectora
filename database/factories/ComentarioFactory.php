@@ -17,9 +17,9 @@ class ComentarioFactory extends Factory
     {
         return [
             'id_usuario' => \App\Models\Usuario::factory(),
-            'id_animal' => null,  // o \App\Models\Animal::factory() si quieres
-            'id_evento' => null,  // o \App\Models\Evento::factory()
-            'id_noticia' => null, // o \App\Models\Noticia::factory()
+            'id_animal' => null,  
+            'id_evento' => null,  
+            'id_noticia' => null, 
             'texto' => $this->faker->sentence(10),
             'fecha_comentario' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
