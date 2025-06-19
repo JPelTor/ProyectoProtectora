@@ -18,8 +18,8 @@ class SolicitudAdopcionFactory extends Factory
         $estados = ['pendiente', 'aprobada', 'rechazada'];
 
         return [
-            'id_usuario' => \App\Models\Usuario::factory(),
-            'id_animal' => \App\Models\Animal::factory(),
+            'id_usuario' => $this->faker->numberBetween(1, 20),
+            'id_animal' => $this->faker->numberBetween(1, 10),
             'fecha_solicitud' => $this->faker->dateTimeBetween('-6 months', 'now'),
             'estado_solicitud' => $this->faker->randomElement($estados),
             'comentarios' => $this->faker->sentence,

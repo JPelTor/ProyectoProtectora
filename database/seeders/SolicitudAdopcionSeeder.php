@@ -14,6 +14,6 @@ class SolicitudAdopcionSeeder extends Seeder
      */
     public function run()
     {
-        SolicitudAdopcion::factory()->count(15)->create();
+        SolicitudAdopcion::factory()->count(3)->create();
     }
 }

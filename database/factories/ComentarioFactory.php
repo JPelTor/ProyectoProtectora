@@ -16,9 +16,9 @@ class ComentarioFactory extends Factory
     public function definition()
     {
         return [
-            'id_usuario' => \App\Models\Usuario::factory(),
+            'id_usuario' => $this->faker->numberBetween(1, 20),
             'id_animal' => null,  
-            'id_evento' => null,  
+            'id_evento' => $this->faker->numberBetween(1, 10),  
             'id_noticia' => null, 
             'texto' => $this->faker->sentence(10),
             'fecha_comentario' => $this->faker->dateTimeBetween('-1 year', 'now'),

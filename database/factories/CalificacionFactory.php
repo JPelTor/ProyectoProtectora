@@ -16,9 +16,9 @@ class CalificacionFactory extends Factory
     public function definition()
     {
         return [
-            'id_usuario' => \App\Models\Usuario::factory(),
+            'id_usuario' => $this->faker->numberBetween(1, 20),
             'id_animal' => null,
-            'id_evento' => null,
+            'id_evento' => $this->faker->numberBetween(1, 10),
             'puntuacion' => $this->faker->numberBetween(1, 5),
             'comentario' => $this->faker->optional()->sentence(10),
             'fecha_calificacion' => $this->faker->dateTimeBetween('-1 year', 'now'),

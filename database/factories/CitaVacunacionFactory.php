@@ -18,7 +18,7 @@ class CitaVacunacionFactory extends Factory
         $tipos_vacunas = ['Rabia', 'Parvovirus', 'Moquillo', 'Leptospirosis'];
 
         return [
-            'id_animal' => \App\Models\Animal::factory(),
+            'id_animal' => $this->faker->numberBetween(1, 10),
             'fecha_cita' => $this->faker->dateTimeBetween('now', '+1 year'),
             'tipo_vacuna' => $this->faker->randomElement($tipos_vacunas),
             'observaciones' => $this->faker->optional()->text(100),

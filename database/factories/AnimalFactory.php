@@ -15,20 +15,20 @@ class AnimalFactory extends Factory
 
     public function definition()
     {
-        $tipos = ['Perro', 'Gato', 'Ave', 'Otro'];
         $sexos = ['M', 'F'];
         $estados = ['disponible', 'adoptado', 'en_proceso'];
 
         return [
             'nombre' => $this->faker->firstName,
-            'tipo' => $this->faker->randomElement($tipos),
+            'tipo' => 'Perro',
             'edad' => $this->faker->numberBetween(1, 15),
             'sexo' => $this->faker->randomElement($sexos),
             'descripcion' => $this->faker->text(200),
             'estado_adopcion' => $this->faker->randomElement($estados),
-            'foto' => 'animals/image1.jpg',
+            'foto' => 'image1.jpeg',
             'fecha_ingreso' => $this->faker->dateTimeBetween('-2 years', 'now'),
             'id_adoptante' => null, 
+            
         ];
     }
 }
