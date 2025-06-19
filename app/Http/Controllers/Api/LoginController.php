@@ -12,7 +12,6 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'correo_electronico' => 'required|email',
             'contrasena' => 'required'
