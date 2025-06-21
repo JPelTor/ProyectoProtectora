@@ -38,4 +38,22 @@ class LoginController extends Controller
             ]);
         }
     }
+
+    public function logout(Request $request)
+    {
+        $request->validate([
+            'api_token' => 'required'
+        ]);
+
+        $usuario = Usuario::where('api_token', $request->api_token)->first();
+
+        if (!$usuario) {
+            return response()->json(['error' => 'Token inválido'], 401);
+        }
+
+        $usuario->api_token = null;
+        $usuario->save();
+
+        return response()->json(['mensaje' => 'Sesión cerrada correctamente']);
+    }
 }
