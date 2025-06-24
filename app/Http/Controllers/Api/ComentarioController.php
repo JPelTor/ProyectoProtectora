@@ -8,9 +8,23 @@ use App\Models\Comentario;
 
 class ComentarioController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Comentario::all();
+        $query = Comentario::query();
+
+        if ($request->has('id_animal')) {
+            $query->where('id_animal', $request->id_animal);
+        }
+
+        if ($request->has('id_evento')) {
+            $query->where('id_evento', $request->id_evento);
+        }
+
+        if ($request->has('id_noticia')) {
+            $query->where('id_noticia', $request->id_noticia);
+        }
+
+        return response()->json($query->orderBy('fecha_comentario', 'desc')->get());
     }
 
     public function store(Request $request)
@@ -56,7 +70,7 @@ class ComentarioController extends Controller
         if ($refs->count() > 1) {
             return response()->json(['error' => 'Solo puede asociarse a un tipo: animal, evento o noticia'], 422);
         }
-        
+
         $comentario->update($request->all());
 
         return response()->json($comentario);

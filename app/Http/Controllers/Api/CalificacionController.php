@@ -8,10 +8,21 @@ use App\Models\Calificacion;
 
 class CalificacionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Calificacion::all();
+        $query = Calificacion::query();
+
+        if ($request->has('id_animal')) {
+            $query->where('id_animal', $request->id_animal);
+        }
+
+        if ($request->has('id_evento')) {
+            $query->where('id_evento', $request->id_evento);
+        }
+
+        return response()->json($query->orderBy('fecha_calificacion', 'desc')->get());
     }
+
 
     public function store(Request $request)
     {
@@ -23,7 +34,7 @@ class CalificacionController extends Controller
             'comentario' => 'nullable|string',
             'fecha_calificacion' => 'required|date',
         ]);
-        
+
         $refs = collect([$request->id_animal, $request->id_evento])->filter();
         if ($refs->count() !== 1) {
             return response()->json(['error' => 'Debe asociarse solo a un animal o evento'], 422);
