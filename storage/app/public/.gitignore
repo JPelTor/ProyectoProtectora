@@ -1,4 +1,8 @@
 *
 !animals/
 !animals/**
+!eventos/
+!eventos/**
+!noticias/
+!noticias/**
 !.gitignore

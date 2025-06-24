@@ -8,6 +8,10 @@
 /storage/app/public/*
 !/storage/app/public/animals/
 /storage/app/public/animals/**
+!/storage/app/public/eventos/
+/storage/app/public/eventos/**
+!/storage/app/public/noticias/
+/storage/app/public/noticias/**
 /vendor
 .env
 .env.backup

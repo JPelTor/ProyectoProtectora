@@ -1,4 +1,6 @@
 *
 !public/
 !public/animals/
+!public/eventos/
+!public/noticias/
 !.gitignore
