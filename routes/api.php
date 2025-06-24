@@ -68,34 +68,29 @@ Route::middleware('auth:api')->group(function () {
         Route::put('eventos/{id}', [EventoController::class, 'update']);
         Route::delete('eventos/{id}', [EventoController::class, 'destroy']);
     });
+    // Solicitudes de adopción (crear y ver)
+    Route::get('solicitudes', [SolicitudAdopcionController::class, 'index']);
+    Route::get('solicitudes/{id}', [SolicitudAdopcionController::class, 'show']);
+    Route::post('solicitudes', [SolicitudAdopcionController::class, 'store']);
+    Route::put('solicitudes/{id}', [SolicitudAdopcionController::class, 'update']);
+    Route::delete('solicitudes/{id}', [SolicitudAdopcionController::class, 'destroy']);
 
-    // Rutas para adoptantes y voluntarios
-    /* Route::middleware('roles:adoptante,voluntario')->group(function () { */
+    // Citas de vacunación
+    Route::get('citas', [CitasVacunacionController::class, 'index']);
+    Route::get('citas/{id}', [CitasVacunacionController::class, 'show']);
+    Route::post('citas', [CitasVacunacionController::class, 'store']);
+    Route::put('citas/{id}', [CitasVacunacionController::class, 'update']);
+    Route::delete('citas/{id}', [CitasVacunacionController::class, 'destroy']);
 
-        // Solicitudes de adopción (crear y ver)
-        Route::get('solicitudes', [SolicitudAdopcionController::class, 'index']);
-        Route::get('solicitudes/{id}', [SolicitudAdopcionController::class, 'show']);
-        Route::post('solicitudes', [SolicitudAdopcionController::class, 'store']);
-        Route::put('solicitudes/{id}', [SolicitudAdopcionController::class, 'update']);
-        Route::delete('solicitudes/{id}', [SolicitudAdopcionController::class, 'destroy']);
+    // Comentarios (crear, editar, eliminar)
+    Route::post('comentarios', [ComentarioController::class, 'store']);
+    Route::put('comentarios/{id}', [ComentarioController::class, 'update']);
+    Route::delete('comentarios/{id}', [ComentarioController::class, 'destroy']);
 
-        // Citas de vacunación
-        Route::get('citas', [CitasVacunacionController::class, 'index']);
-        Route::get('citas/{id}', [CitasVacunacionController::class, 'show']);
-        Route::post('citas', [CitasVacunacionController::class, 'store']);
-        Route::put('citas/{id}', [CitasVacunacionController::class, 'update']);
-        Route::delete('citas/{id}', [CitasVacunacionController::class, 'destroy']);
-
-        // Comentarios (crear, editar, eliminar)
-        Route::post('comentarios', [ComentarioController::class, 'store']);
-        Route::put('comentarios/{id}', [ComentarioController::class, 'update']);
-        Route::delete('comentarios/{id}', [ComentarioController::class, 'destroy']);
-
-        // Calificaciones
-        Route::get('calificaciones', [CalificacionController::class, 'index']);
-        Route::get('calificaciones/{id}', [CalificacionController::class, 'show']);
-        Route::post('calificaciones', [CalificacionController::class, 'store']);
-        Route::put('calificaciones/{id}', [CalificacionController::class, 'update']);
-        Route::delete('calificaciones/{id}', [CalificacionController::class, 'destroy']);
-    /* }); */
+    // Calificaciones
+    Route::get('calificaciones', [CalificacionController::class, 'index']);
+    Route::get('calificaciones/{id}', [CalificacionController::class, 'show']);
+    Route::post('calificaciones', [CalificacionController::class, 'store']);
+    Route::put('calificaciones/{id}', [CalificacionController::class, 'update']);
+    Route::delete('calificaciones/{id}', [CalificacionController::class, 'destroy']);
 });
