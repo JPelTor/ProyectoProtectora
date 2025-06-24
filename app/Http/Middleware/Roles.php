@@ -15,7 +15,7 @@ class Roles
 
         if (!$user || !in_array($user->rol, $roles)) {
             
-            return \Log::info('Usuario autenticado:', [auth()->user()])/* response()->json(['error' => 'No autorizado.'], 403); */
+            return response()->json(['error' => 'No autorizado.'], 403);
         }
 
         return $next($request);
