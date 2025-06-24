@@ -70,7 +70,7 @@ Route::middleware('auth:api')->group(function () {
     });
 
     // Rutas para adoptantes y voluntarios
-    Route::middleware('roles:adoptante,voluntario')->group(function () {
+    /* Route::middleware('roles:adoptante,voluntario')->group(function () { */
 
         // Solicitudes de adopción (crear y ver)
         Route::get('solicitudes', [SolicitudAdopcionController::class, 'index']);
@@ -97,5 +97,5 @@ Route::middleware('auth:api')->group(function () {
         Route::post('calificaciones', [CalificacionController::class, 'store']);
         Route::put('calificaciones/{id}', [CalificacionController::class, 'update']);
         Route::delete('calificaciones/{id}', [CalificacionController::class, 'destroy']);
-    });
+    /* }); */
 });
