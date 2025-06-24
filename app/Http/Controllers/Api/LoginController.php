@@ -31,6 +31,7 @@ class LoginController extends Controller
             return response()->json([
                 'api_token' => $usuario->api_token,
                 'usuario' => [
+                    'id_usuario' => $usuario->id_usuario,
                     'nombre' => $usuario->nombre,
                     'tipo_usuario' => $usuario->tipo_usuario,
                     'correo_electronico' => $usuario->correo_electronico
