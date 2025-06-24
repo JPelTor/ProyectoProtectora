@@ -15,7 +15,7 @@ class Roles
 
         // Verifica que haya un usuario logueado y que su rol esté permitido
         if (!$user || !in_array($user->rol, $roles)) {
-            return response()->json(['error' => 'No autorizado.'], 403);
+            return response()->json(['error' => 'No autorizado.'.[auth()->user()]], 403);
         }
 
         return $next($request);
