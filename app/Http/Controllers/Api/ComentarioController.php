@@ -30,10 +30,10 @@ class ComentarioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_usuario' => 'required|exists:usuarios,id_usuario',
-            'id_animal' => 'nullable|exists:animals,id_animal',
-            'id_evento' => 'nullable|exists:eventos,id_evento',
-            'id_noticia' => 'nullable|exists:noticias,id_noticia',
+            'id_usuario' => 'required|integer|exists:usuarios,id_usuario',
+            'id_animal' => 'nullable|integer|exists:animals,id_animal',
+            'id_evento' => 'nullable|integer|exists:eventos,id_evento',
+            'id_noticia' => 'nullable|integer|exists:noticias,id_noticia',
             'texto' => 'required|string',
             'fecha_comentario' => 'required|date',
         ]);
